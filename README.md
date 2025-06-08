@@ -4,38 +4,76 @@ A web-based tool that allows users to input multiple URLs and check whether the 
 
 ---
 
-## 🚀 Features
+## 🧠 Project Overview
 
-- ✅ **Check Status**: Instantly determine if a URL is reachable (UP) or not (DOWN).
-- ⚡ **Response Time**: View the latency (in ms) for each URL.
-- 🗂️ **History Storage**: Maintain historical records of previous checks.
-- 📈 **Metrics & Graphs**: Monitor uptime percentages and average response times.
-- 📬 **Alerts** *(optional)*: Notify users of repeated failures.
+The **URL Health Monitor** is designed to help users quickly assess the status and responsiveness of multiple websites. By inputting a list of URLs, users can instantly check if each website is UP or DOWN, view the response time, and track the availability history over time.
 
 ---
 
-## 🖥️ UI Preview
+## 🚀 Core Features
 
-> A simple, clean interface to enter URLs and view results  
-> (Add screenshot or GIF here)
+- ✅ **Check Status**  
+  Instantly determine if a URL is reachable (UP) or not (DOWN) based on HTTP response codes.
+
+- ⚡ **Response Time**  
+  Measure and display how long each request takes (in milliseconds).
+
+- 🗂️ **Historical Data Storage**  
+  Logs all checks with timestamps and stores them in a database.
+
+- 📈 **Health Metrics Over Time**  
+  Graphs showing average uptime percentage and response times for each URL.
+
+- 🖥️ **Interactive GUI**  
+  User-friendly interface to input multiple URLs, view current status, and analyze trends.
+
+- 📬 **Notifications** *(optional)*  
+  Send alerts if a URL remains down for multiple checks (via email or UI popup).
 
 ---
 
-## 🔧 Tech Stack
+## 🧱 Tech Stack (Suggested)
 
-| Layer      | Tech Choices                        |
-|------------|-------------------------------------|
-| Frontend   | React.js / Vue.js, Tailwind CSS     |
-| Backend    | Flask / Django / Node.js            |
-| Database   | SQLite / MongoDB                    |
-| Visualization | Chart.js / D3.js                 |
-| Task Scheduler | Cron / Celery (optional)        |
+| Layer      | Tools                                 |
+|------------|----------------------------------------|
+| Frontend   | React.js / Vue.js, Tailwind CSS        |
+| Backend    | Flask / Django / Node.js               |
+| Database   | SQLite (dev) / MongoDB (prod-ready)    |
+| Visualization | Chart.js / D3.js                    |
+| Task Scheduler | Cron / Celery / APScheduler        |
 
 ---
 
-## 🛠️ Installation
+## 🛠️ Installation Guide
 
 ### 1. Clone the Repository
+git clone https://github.com/yourusername/url-health-monitor.git
+cd url-health-monitor
 
-```bash
+cd backend
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+python app.py
+
+cd frontend
+npm install
+npm start
+
+url-health-monitor/
+├── backend/
+│   ├── app.py
+│   ├── models.py
+│   ├── check_urls.py
+│   └── ...
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   └── App.jsx
+│   └── ...
+├── database/
+│   └── logs.db
+├── README.md
+└── requirements.txt
+
 
