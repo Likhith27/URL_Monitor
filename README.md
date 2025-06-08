@@ -1,79 +1,95 @@
 # 🌐 URL Health Monitor
 
-A web-based tool that allows users to input multiple URLs and check whether the websites are **UP or DOWN**, along with their **response time**. The application also keeps track of past results and visualizes the **health metrics over time**.
+This is a lightweight web app that allows users to monitor the availability of multiple URLs. Users can enter a list of websites and check whether they are **UP** or **DOWN**, see **response times**, and track **uptime history** over time.
+
+Built with **Python + Streamlit**, containerized with **Docker**, and developed using **Windsurf**, Codeium’s agentic AI IDE.
 
 ---
 
-## 🧠 Project Overview
+## 🚀 Features
 
-The **URL Health Monitor** is designed to help users quickly assess the status and responsiveness of multiple websites. By inputting a list of URLs, users can instantly check if each website is UP or DOWN, view the response time, and track the availability history over time.
-
----
-
-## 🚀 Core Features
-
-- ✅ **Check Status**  
-  Instantly determine if a URL is reachable (UP) or not (DOWN) based on HTTP response codes.
-
-- ⚡ **Response Time**  
-  Measure and display how long each request takes (in milliseconds).
-
-- 🗂️ **Historical Data Storage**  
-  Logs all checks with timestamps and stores them in a database.
-
-- 📈 **Health Metrics Over Time**  
-  Graphs showing average uptime percentage and response times for each URL.
-
-- 🖥️ **Interactive GUI**  
-  User-friendly interface to input multiple URLs, view current status, and analyze trends.
-
-- 📬 **Notifications** *(optional)*  
-  Send alerts if a URL remains down for multiple checks (via email or UI popup).
+- ✅ **Enter multiple URLs** via a simple web UI.
+- 🔍 **Check real-time status** of each URL (UP/DOWN).
+- ⚡ **See response time** in milliseconds.
+- 🗂 **Persist historical results** using JSON.
+- 📊 **Uptime statistics** shown in a sidebar.
+- 🐳 **Dockerized** for portable deployment.
 
 ---
 
-## 🧱 Tech Stack (Suggested)
+## 🖼️ UI Overview
 
-| Layer      | Tools                                 |
-|------------|----------------------------------------|
-| Frontend   | React.js / Vue.js, Tailwind CSS        |
-| Backend    | Flask / Django / Node.js               |
-| Database   | SQLite (dev) / MongoDB (prod-ready)    |
-| Visualization | Chart.js / D3.js                    |
-| Task Scheduler | Cron / Celery / APScheduler        |
+- **Main Input Area**: Paste URLs (one per line).
+- **Check URLs Button**: Starts health check.
+- **Results Table**: Displays current statuses and timings.
+- **Sidebar**: Select a URL to view uptime metrics like:
+  - Uptime %
+  - Total checks
+  - Count of UP states
+  - Recent results table
 
 ---
 
-## 🛠️ Installation Guide
+## 🧱 Tech Stack
 
-### 1. Clone the Repository
-git clone https://github.com/yourusername/url-health-monitor.git
-cd url-health-monitor
+| Layer     | Tech        |
+|-----------|-------------|
+| Language  | Python 3.10 |
+| Frontend  | Streamlit   |
+| Backend   | `requests` for HTTP checks |
+| Storage   | JSON file-based logging (`history/results.json`) |
+| Container | Docker      |
+| AI Assist | Windsurf (Codeium) |
 
-cd backend
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+---
+
+## 📂 Project Structure
+
+
+---
+
+## 🐳 Running with Docker
+
+📁 url-health-monitor/
+├── app.py # Streamlit app frontend
+├── monitor.py # Core logic for URL health checks
+├── Dockerfile # Containerization setup
+├── requirements.txt # Python dependencies
+└── history/
+└── results.json # JSON store of all past URL checks
+
+
+## 🐳 Running with Docker
+
+```bash
+docker build -t url-health-monitor .
+docker run -p 8501:8501 url-health-monitor
+
 pip install -r requirements.txt
-python app.py
+streamlit run app.py
+```
+📊 Example URLs
 
-cd frontend
-npm install
-npm start
+https://www.google.com
+https://openai.com
+https://some-nonexistent-site.abc
 
-url-health-monitor/
-├── backend/
-│   ├── app.py
-│   ├── models.py
-│   ├── check_urls.py
-│   └── ...
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   └── App.jsx
-│   └── ...
-├── database/
-│   └── logs.db
-├── README.md
-└── requirements.txt
+📈 Future Enhancements
 
+Scheduled auto-checks (cron/Celery)
+Alert notifications
+Graphical dashboards
+User authentication
 
+🙌 Acknowledgements
+
+Built using Windsurf by Codeium
+Streamlit for UI
+Requests for backend checks
+
+👨‍💻 Author
+[Your Name]
+
+Here is the video link of My project.
+
+[https://www.loom.com/share/3033ffc336524bdb8744e5e709c7f7e8?sid=220b8151-e844-42a7-989a-6cf5394e078d](VideoLink)
